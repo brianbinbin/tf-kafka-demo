@@ -1,11 +1,25 @@
 provider "aws" {
-  region     = "ap-southeast-1"
+  region     = "ap-southeast-1" 
+  access_key = var.access_key
+  secret_key = var.secret_ke
 
   default_tags {
     tags = {
       Name        = "kafka-demo"
     }
   }
+}
+
+variable "access_key" {
+  description = "AWS access key"
+  type        = string
+  default     = null
+}
+
+variable "secret_key" {
+  description = "AWS secret key"
+  type        = string
+  default     = null
 }
 
 resource "aws_vpc" "vpc" {
